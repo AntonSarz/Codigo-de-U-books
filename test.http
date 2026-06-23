@@ -1,0 +1,29 @@
+POST http://localhost:3000/api/anuncios
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="id_usuario"
+
+1
+--boundary
+Content-Disposition: form-data; name="titulo"
+
+Libro de prueba
+--boundary
+Content-Disposition: form-data; name="autor"
+
+Autor Anonimo
+--boundary
+Content-Disposition: form-data; name="id_materia"
+
+1
+--boundary
+Content-Disposition: form-data; name="condicion"
+
+Nuevo
+--boundary
+Content-Disposition: form-data; name="foto"; filename="foto.png"
+Content-Type: image/png
+
+< C:\Users\suare\OneDrive\Escritorio\Cosas xd\__itagaki_tatsuko_maji_de_watashi_ni_koi_shinasai_drawn_by_kawagishi_keitarou__a30f28c8aff4df205f733aaf637e8151.png
+--boundary--

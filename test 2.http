@@ -1,0 +1,25 @@
+PUT http://localhost:3000/api/anuncios/1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="titulo"
+
+Libro de prueba (Editado)
+--boundary
+Content-Disposition: form-data; name="autor"
+
+Autor Anonimo (Modificado)
+--boundary
+Content-Disposition: form-data; name="id_materia"
+
+2
+--boundary
+Content-Disposition: form-data; name="condicion"
+
+Nuevo
+--boundary
+Content-Disposition: form-data; name="foto"; filename="foto.png"
+Content-Type: image/png
+
+< C:\Users\suare\OneDrive\Escritorio\Cosas xd\Screenshot 2026-05-31 213045.png
+--boundary--

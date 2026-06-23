@@ -1,0 +1,12 @@
+### Obtener perfil
+GET http://localhost:3000/api/usuarios/1
+
+### Editar perfil
+PUT http://localhost:3000/api/usuarios/1
+Content-Type: application/json
+
+{
+  "nombre_completo": "Solid Snake",
+  "telefono": "0414-9999999",
+  "id_carrera": 4
+}

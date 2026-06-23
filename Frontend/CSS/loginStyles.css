@@ -1,0 +1,259 @@
+ /* ── Variables de color ── */
+    :root {
+      --navy:   #071d51;
+      --navy-light: #435e81;
+      --green:  #399461;
+      --green-hover: #1b5e20;
+      --blue-btn: #1748bb;
+      --blue-btn-hover: #0c408f;
+      --text-muted-link: #1565c0;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: #f0f4f8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Navbar ── */
+    .navbar-ubooks {
+      background-color: var(--navy);
+      padding: 0.7rem 1rem;
+    }
+    .navbar-ubooks .brand-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.4rem;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .navbar-ubooks .brand-sub {
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .navbar-ubooks .logo-shield img{
+      width: 70px;
+      height: 70px;
+      align-items: center;
+      object-fit: contain;
+    }
+
+    /* ── Contenido principal ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 2.5rem 2rem;
+    }
+
+    /* ── Card de login ── */
+    .login-card {
+      display: flex;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(22, 37, 69, 0.18);
+      max-width: 860px;
+      width: 100%;
+      background: #fff;
+    }
+
+    /* Panel izquierdo */
+    .login-left {
+      background: linear-gradient(0deg, var(--navy-light) 0%, var(--navy) 60%);
+      width: 42%;
+      flex-shrink: 0;
+      position: relative;
+      padding: 2rem 1.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    .login-left::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('../IMG/libreria.jpg') center/cover no-repeat;
+      opacity: 0.18;
+    }
+    .login-left .left-content {
+      position: relative;
+      z-index: 1;
+    }
+    .left-logo-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: auto;
+    }
+    .left-logo-badge .shield-sm img{
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+    .left-logo-badge .brand-text-sm .t1 {
+      font-family: 'Merriweather', serif;
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .left-logo-badge .brand-text-sm .t2 {
+      font-size: 0.68rem;
+      color: #94a3b8;
+    }
+    .login-tagline {
+      margin-top: 3rem;
+    }
+    .login-tagline p {
+      font-family: 'Merriweather', serif;
+      font-size: 1.3rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Panel derecho */
+    .login-right {
+      flex: 1;
+      padding: 2.5rem 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .login-right h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.85rem;
+      color: #1a202c;
+      margin-bottom: 0.2rem;
+    }
+    .login-right .subtitle {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 1.8rem;
+    }
+
+    /* Inputs */
+    .form-label {
+      font-weight: 600;
+      color: #374151;
+      font-size: 0.92rem;
+      margin-bottom: 0.3rem;
+    }
+    .form-control {
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      padding: 0.6rem 0.85rem;
+      font-size: 0.93rem;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(26, 46, 90, 0.1);
+    }
+    .input-group .form-control {
+      border-right: none;
+    }
+    .input-group .btn-eye {
+      border: 1.5px solid #d1d5db;
+      border-left: none;
+      background: #fff;
+      color: #64748b;
+      border-radius: 0 8px 8px 0;
+      padding: 0 0.85rem;
+      transition: color 0.2s;
+    }
+    .input-group .btn-eye:hover {
+      color: var(--navy);
+    }
+
+    .mb3 {
+      margin-bottom: 1rem;
+    }
+    .mb2 {
+      margin-bottom: 0.75rem;
+    }
+    .align-end {
+      text-align: right;
+    }
+    .full {
+      width: 100%;
+    }
+    .eye-icon {
+      font-size: 1rem;
+      display: inline-flex;
+    }
+
+    /* Link olvidé contraseña */
+    .forgot-link {
+      color: var(--text-muted-link);
+      font-size: 0.87rem;
+      text-decoration: none;
+    }
+    .forgot-link:hover { text-decoration: underline; }
+
+    /* Botón principal */
+    .btn-login {
+      background-color: var(--blue-btn);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: background-color 0.2s, transform 0.15s;
+    }
+    .btn-login:hover {
+      background-color: var(--blue-btn-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Separador "o" */
+    .or-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #9ca3af;
+      font-size: 0.85rem;
+      margin: 1rem 0;
+    }
+    .or-divider::before,
+    .or-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e5e7eb;
+    }
+
+    /* Link de registro */
+    .register-link {
+      font-size: 0.9rem;
+      color: #374151;
+      text-align: center;
+    }
+    .register-link a {
+      color: var(--text-muted-link);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .register-link a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      background-color: #fff;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      padding: 0.9rem;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    /* Responsive: ocultar panel izquierdo en móvil */
+    @media (max-width: 640px) {
+      .login-left { display: none; }
+      .login-right { padding: 2rem 1.5rem; }
+    }

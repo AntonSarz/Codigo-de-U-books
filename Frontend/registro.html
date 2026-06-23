@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo de Libros - U-Books</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet"/>
+  <!-- Estilos personalizados -->
+  <link href="CSS/registroStyles.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar-ubooks d-flex align-items-center gap-1">
+    <div class="logo-shield">
+      <img src="IMG/logo.png" alt="Logo U-Books"/>
+    </div>
+    <div>
+      <div class="brand-title">U-Books</div>
+      <div class="brand-sub">Libros Académicos UCLA</div>
+    </div>
+  </nav>
+
+  <!-- ── Contenido ── -->
+  <main>
+    <div class="register-card">
+
+      <!-- Panel izquierdo -->
+      <div class="register-left">
+        <div class="left-content">
+
+          <div class="left-logo-badge">
+
+            <div class="shield-sm"><img src="IMG/logo.png" alt="Logo U-Books"/></div>
+            
+            <div class="brand-text-sm">
+              <div class="t1">U-Books</div>
+              <div class="t2">Libros Académicos UCLA</div>
+            </div>
+          </div>
+
+          <div class="register-tagline">
+            <p>Únete a la<br>comunidad<br>estudiantil</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Panel derecho -->
+      <div class="register-right">
+        <h2>Crear cuenta</h2>
+        <p class="subtitle">Completa tus datos para registrarte</p>
+
+        <form id="registroForm">
+
+        <!-- Nombre completo -->
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre Completo</label>
+          <input type="text" id="nombre" name="nombre_completo" class="form-control" placeholder="Tu nombre completo" minlength="3" required/>
+        </div>
+
+        <!-- Correo y Teléfono -->
+        <div class="input-row">
+          <div class="input-col">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="ejemplo.ucla@gmail.com" required/>
+          </div>
+
+          <div class="input-col">
+            <label for="telefono" class="form-label">Teléfono (WhatsApp)</label>
+            <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="0414-xxxxxxx" minlength="11" maxlength="11" required/>
+          </div>
+        </div>
+
+        <!-- Contraseña y Confirmar -->
+        <div class="input-row">
+
+          <div class="input-col">
+            <label for="pass1" class="form-label">Contraseña</label>
+
+            <div class="input-group">
+              <input type="password" id="pass1" name="password" class="form-control" placeholder="Crea una contraseña" minlength="6" oninput="checkPasswords()" required/>
+              <button class="btn-eye" type="button" onclick="togglePass('pass1','eye1')" title="Mostrar/ocultar contraseña">
+                <i class="bi bi-eye-slash" id="eye1"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="input-col">
+            <label for="pass2" class="form-label">Confirmar contraseña</label>
+            <div class="input-group">
+              <input type="password" id="pass2" name="confirm_password" class="form-control" placeholder="Confirma contraseña" minlength="6" oninput="checkPasswords()" required/>
+              <button class="btn-eye" type="button" onclick="togglePass('pass2','eye2')" title="Mostrar/ocultar contraseña">
+                <i class="bi bi-eye-slash" id="eye2"></i>
+              </button>
+            </div>
+            <div class="password-mismatch" id="passError">Las contraseñas no coinciden</div>
+          </div>
+        </div>
+
+        <!-- Carrera -->
+        <div class="mb-3">
+          <label for="carrera" class="form-label">Carrera</label>
+          <select id="carrera" name="id_carrera" class="form-select" required>
+            <option value="" disabled selected>Selecciona tu carrera</option>
+          </select>
+        </div>
+
+        <!-- Términos y condiciones -->
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="terminos" onchange="toggleBtn()"/>
+          <label class="form-check-label" for="terminos">
+            Acepto los <a href="terminos.html?from=registro">Términos y Condiciones</a> y declaro que he leído que
+            U-Books no se hace responsable por acuerdos, transacciones o condiciones de los libros publicados
+          </label>
+        </div>
+
+        <div id="registroError" style="display:none; color: #dc2626; font-size:0.88rem; margin-bottom:1rem;"></div>
+
+        <!-- Botón registrarse -->
+        <button type="submit" class="btn btn-register" id="btnRegistrar" disabled>
+          Registrarse
+        </button>
+
+        </form>
+
+        <div class="or-divider">o</div>
+
+        <p class="login-link">
+          ¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+    U-Books © 2026 &bull; Plataforma independiente de la UCLA
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="JS/autenticacion.js"></script>
+</body>
+</html>

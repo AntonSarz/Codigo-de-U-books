@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Perfil - U-Books</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Bootstrap Icons -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+        <!-- Google Fonts -->
+          <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet"/>
+  <!-- Estilos personalizados -->
+  <link href="CSS/perfilStyles.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════
+     NAVBAR
+═══════════════════════════════ -->
+<!--NAVBAR -->
+<nav class="navbar-ubooks d-flex align-items-center gap-1">
+
+  <!-- Logo -->
+  <a href="catalogo.html" class="d-flex align-items-center gap-2 text-decoration-none">
+    <div class="logo-shield">
+      <img src="IMG/logo.png" alt="Logo U-Books">
+    </div>
+    <div>
+      <div class="brand-title">U-Books</div>
+      <div class="brand-sub">Libros Académicos UCLA</div>
+    </div>
+  </a>
+
+  <!-- Mi Perfil -->
+  <div class="profile-wrapper">
+    <button class="profile-btn" onclick="toggleDropdown()">
+      <i class="bi bi-person-circle"></i>
+      Mi perfil <i class="bi bi-chevron-down" style="font-size:0.75rem;"></i>
+    </button>
+    <div class="profile-dropdown" id="profileDropdown">
+      <a href="perfil.html"><i class="bi bi-person"></i> Ver mi perfil</a>
+      <hr/>
+      <a href="#" onclick="cerrarSesion()" class="danger"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a>
+    </div>
+  </div>
+
+</nav>
+
+<!-- ═══════════════════════════════
+     LAYOUT PRINCIPAL
+═══════════════════════════════ -->
+<main>
+
+  <!-- ── Sidebar izquierdo ── -->
+  <aside class="left-sidebar">
+    <div class="sidebar-nav">
+      <a class="sidebar-item active" href="perfil.html">
+        <i class="bi bi-person-circle"></i> Mi perfil
+      </a>
+      <a class="sidebar-item danger" href="#" onclick="cerrarSesion()">
+        <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+      </a>
+    </div>
+
+    <!-- Caja de ayuda -->
+    <div class="help-box">
+      <div class="help-title">
+        <i class="bi bi-question-circle" style="color:var(--blue-btn);font-size:1.1rem;"></i>
+        ¿Necesitas ayuda?
+      </div>
+      <p>Contáctanos a través de nuestro correo electrónico:</p>
+      <a href="mailto:soporte.ubooks@gmail.com">soporte.ubooks@gmail.com</a>
+    </div>
+  </aside>
+
+  <!-- ── Contenido ── -->
+  <div class="main-content">
+
+    <!-- Tarjeta de perfil -->
+    <div class="profile-card">
+      <div class="avatar-circle">
+        <i class="bi bi-person-fill"></i>
+      </div>
+      <div class="profile-info">
+        <h4 id="displayNombre">Antonio Suarez</h4>
+        <div class="info-row"><i class="bi bi-envelope"></i> <span id="displayEmail">1005.31027537@gmail.com</span></div>
+        <div class="info-row wa-row"><i class="bi bi-whatsapp"></i> <span id="displayTelefono">0414-1234567</span></div>
+      </div>
+      <div class="carrera-block">
+        <div class="label">Carrera</div>
+        <div class="carrera-name">
+          <i class="bi bi-mortarboard-fill"></i>
+          <span id="displayCarrera">Ingeniería Telemática</span>
+        </div>
+      </div>
+      <button class="btn-edit-profile" onclick="abrirEditarPerfil()">
+        <i class="bi bi-pencil"></i> Editar Perfil
+      </button>
+    </div>
+
+    <!-- Sección Mis Anuncios -->
+    <div class="ads-section">
+      <div class="d-flex align-items-center gap-2 mb-1">
+        <i class="bi bi-bookmark" style="color:var(--navy);font-size:1.1rem;"></i>
+        <h5 class="mb-0">Mis Anuncios publicados</h5>
+      </div>
+      <p class="section-sub">Administra los libros que has publicado en la plataforma.</p>
+
+      <!-- Tabs -->
+      <div class="ads-tabs">
+        <button class="ads-tab active" onclick="filterTab('todos', this)">
+          Todos <span id="cntTodos">(2)</span>
+        </button>
+        <button class="ads-tab" onclick="filterTab('disponible', this)">
+          <span class="tab-dot dot-green"></span> Disponible <span id="cntDisponible">(1)</span>
+        </button>
+        <button class="ads-tab" onclick="filterTab('vendido', this)">
+          <span class="tab-dot dot-gray"></span> Vendidos <span id="cntVendido">(1)</span>
+        </button>
+      </div>
+
+      <!-- Lista de anuncios -->
+      <div id="adsList"></div>
+      <div class="no-ads d-none" id="noAds">
+        <i class="bi bi-inbox"></i>
+        No tienes anuncios en esta categoría.
+      </div>
+    </div>
+
+  </div><!-- /main-content -->
+</main>
+
+<footer>
+  <div class="footer-grid">
+
+    <!-- Logo + redes -->
+    <div class="footer-logo">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <div class="logo-shield-sm"><img src="IMG/logo2.png" alt="Logo U-Books"></div>
+        <div>
+          <div class="brand-title">U-Books</div>
+          <div class="brand-sub">Libros Académicos UCLA</div>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="https://wa.me/04245205835" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <a href="mailto:soporte.ubooks@gmail.com" title="Correo"><i class="bi bi-envelope"></i></a>
+      </div>
+    </div>
+
+    <!-- Aviso legal -->
+    <div class="footer-section">
+      <h6>Aviso legal</h6>
+      <p>U-Books es un puente informativo. La plataforma no se hace responsable por incidentes de estafas, estado del libro o acuerdos monetarios entre compradores y vendedores.</p>
+    </div>
+
+    <!-- Enlaces útiles -->
+    <div class="footer-section">
+      <h6>Enlaces útiles</h6>
+      <ul>
+        <li><a href="terminos.html?from=perfil">Términos y Condiciones</a></li>
+        <li><a href="politica.html?from=perfil">Política de Privacidad</a></li>
+      </ul>
+    </div>
+
+    <!-- Contacto -->
+    <div class="footer-section">
+      <h6>Contacto</h6>
+      <address>
+        soporte.ubooks@gmail.com<br/><br/>
+        Decanato de Ciencias y Tecnología<br/>
+        Universidad Centroccidental Lisandro Alvarado<br/>
+        Barquisimeto, Estado Lara, Venezuela
+      </address>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    U-Books © 2026 &bull; Plataforma independiente de la UCLA
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════
+     MODAL EDITAR PERFIL
+═══════════════════════════════ -->
+<div class="modal fade" id="modalEditPerfil" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="bi bi-pencil me-2"></i>Editar Perfil</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <form id="editPerfilForm">
+
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Nombre Completo</label>
+          <input type="text" class="form-control" id="editNombre" name="nombre_completo" placeholder="Tu nombre completo" minlength="3"/>
+        </div>
+        <!-- Correo bloqueado (no editable) -->
+        <div class="mb-3">
+          <label class="form-label">Correo electrónico</label>
+          <div class="field-locked"><i class="bi bi-lock"></i> <span id="editEmailLocked"></span></div>
+          <div style="font-size:0.78rem;color:#94a3b8;margin-top:0.3rem;">El correo no puede modificarse.</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Teléfono (WhatsApp)</label>
+          <input type="tel" class="form-control" id="editTelefono" name="telefono" placeholder="0414-xxxxxxx" minlength="11" maxlength="11"/>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Carrera</label>
+          <select class="form-select" id="editCarrera" name="carrera">
+            <option>Ingeniería en Informática</option>
+            <option>Ingeniería en Telemática</option>
+            <option>Licenciatura en Matemáticas</option>
+            <option>Ingeniería en Producción</option>
+            <option>Analisis en Sistemas</option>
+            <option>Licenciatura en Física</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-save"><i class="bi bi-check-lg me-1"></i>Guardar cambios</button>
+      </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     MODAL EDITAR ANUNCIO
+═══════════════════════════════ -->
+<div class="modal fade" id="modalEditAd" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="bi bi-pencil me-2"></i>Editar anuncio</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <form id="editAnForm" enctype="multipart/form-data">
+
+      <div class="modal-body">
+        <input type="hidden" id="editAdId"/>
+        <div class="row g-3">
+          <div class="col-12">
+            <label class="form-label">Título del libro <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="editAdTitulo" name="titulo" minlength="5"/>
+          </div>
+          <div class="col-md-7">
+            <label class="form-label">Autor <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="editAdAutor" name="autor" minlength="3"/>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">Edición</label>
+            <input type="text" class="form-control" id="editAdEdicion" name="edicion" minlength="3"/>
+          </div>
+          <div class="col-md-7">
+            <label class="form-label">Materia <span class="text-danger">*</span></label>
+            <select class="form-select" id="editAdMateria" name="materia">
+              <option>Cálculo</option>
+              <option>Electrónica</option>
+              <option>Física</option>
+              <option>Programación</option>
+              <option>Redes</option>
+              <option>Estadística</option>
+            </select>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">Estado <span class="text-danger">*</span></label>
+            <select class="form-select" id="editAdEstado" name="condicion">
+              <option value="Nuevo">Nuevo</option>
+              <option value="Usado">Usado</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Foto del libro</label>
+            <div class="img-preview-box" id="editPreviewBox">
+              <i class="bi bi-cloud-arrow-up" style="font-size:1.6rem;"></i>
+              <span>Haz clic para cambiar la imagen (máx. 10 MB)</span>
+              <input type="file" id="editFotoInput" name="foto" accept="image/*" onchange="previewEditImage(event)"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-publish"><i class="bi bi-check-lg me-1"></i>Guardar cambios</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     MODAL CONFIRMAR ELIMINAR
+═══════════════════════════════ -->
+<div class="modal fade modal-delete" id="modalDelete" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-white"><i class="bi bi-trash me-2"></i>Eliminar anuncio</h5>
+        <button class="btn-close" data-bs-dismiss="modal" style="filter:invert(1);"></button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.93rem;">¿Estás seguro de que deseas eliminar el anuncio <strong id="deleteAdName"></strong>? Esta acción no se puede deshacer.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+        <button class="btn btn-sm" style="background:#dc2626;color:#fff;border-radius:8px;font-weight:600;" onclick="confirmarEliminar()">
+          <i class="bi bi-trash me-1"></i> Sí, eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toasts -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
+  <div id="toastGuardado" class="toast align-items-center text-white bg-success border-0 mb-2">
+    <div class="d-flex">
+      <div class="toast-body"><i class="bi bi-check-circle me-2"></i><span id="toastMsg">Cambios guardados</span></div>
+      <button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+  <div id="toastEliminado" class="toast align-items-center text-white border-0" style="background:#dc2626;">
+    <div class="d-flex">
+      <div class="toast-body"><i class="bi bi-trash me-2"></i> Anuncio eliminado correctamente.</div>
+      <button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="JS/sesion.js"></script>
+<script src="JS/perfil.js"></script>
+
+</body>
+</html>
