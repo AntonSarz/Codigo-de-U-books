@@ -19,7 +19,7 @@ async function cargarAnuncios() {
     visibleBooks = [...allBooks];
     sortBooks();
   } catch (error) {
-    console.error('Error al cargar anuncios:',)
+    console.error('Error al cargar anuncios:', error)
   }
 }
 
@@ -69,7 +69,7 @@ function renderBooks(books) {
   grid.innerHTML = books.map(b => `
     <div class="book-card">
       <div class="book-img-wrapper">
-        <img src="http://localhost:3000${b.foto_url}" alt="${b.titulo}" onerror="this.src='IMG/books.png'"/>
+        <img src="http://localhost:3000${b.foto_url}" alt="${b.titulo}" onerror="this.src='../IMG/books.png'"/>
         <span class="badge-estado badge-${b.condicion === 1 ? 'nuevo' : 'usado'}">${b.condicion === 1 ? 'Nuevo' : 'Usado'}</span>
       </div>
       <div class="book-body">

@@ -85,15 +85,15 @@
         <i class="bi bi-person-fill"></i>
       </div>
       <div class="profile-info">
-        <h4 id="displayNombre">Antonio Suarez</h4>
-        <div class="info-row"><i class="bi bi-envelope"></i> <span id="displayEmail">1005.31027537@gmail.com</span></div>
-        <div class="info-row wa-row"><i class="bi bi-whatsapp"></i> <span id="displayTelefono">0414-1234567</span></div>
+        <h4 id="displayNombre"></h4>
+        <div class="info-row"><i class="bi bi-envelope"></i> <span id="displayEmail"></span></div>
+        <div class="info-row wa-row"><i class="bi bi-whatsapp"></i> <span id="displayTelefono"></span></div>
       </div>
       <div class="carrera-block">
         <div class="label">Carrera</div>
         <div class="carrera-name">
           <i class="bi bi-mortarboard-fill"></i>
-          <span id="displayCarrera">Ingeniería Telemática</span>
+          <span id="displayCarrera"></span>
         </div>
       </div>
       <button class="btn-edit-profile" onclick="abrirEditarPerfil()">
@@ -112,13 +112,13 @@
       <!-- Tabs -->
       <div class="ads-tabs">
         <button class="ads-tab active" onclick="filterTab('todos', this)">
-          Todos <span id="cntTodos">(2)</span>
+          Todos <span id="cntTodos">()</span>
         </button>
         <button class="ads-tab" onclick="filterTab('disponible', this)">
-          <span class="tab-dot dot-green"></span> Disponible <span id="cntDisponible">(1)</span>
+          <span class="tab-dot dot-green"></span> Disponible <span id="cntDisponible">()</span>
         </button>
         <button class="ads-tab" onclick="filterTab('vendido', this)">
-          <span class="tab-dot dot-gray"></span> Vendidos <span id="cntVendido">(1)</span>
+          <span class="tab-dot dot-gray"></span> Vendidos <span id="cntVendido">()</span>
         </button>
       </div>
 
@@ -146,7 +146,7 @@
         </div>
       </div>
       <div class="footer-social">
-        <a href="https://wa.me/04245205835" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <a href="https://wa.me/0424-5205835" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
         <a href="mailto:soporte.ubooks@gmail.com" title="Correo"><i class="bi bi-envelope"></i></a>
       </div>
     </div>
@@ -210,17 +210,12 @@
         </div>
         <div class="mb-3">
           <label class="form-label">Teléfono (WhatsApp)</label>
-          <input type="tel" class="form-control" id="editTelefono" name="telefono" placeholder="0414-xxxxxxx" minlength="11" maxlength="11"/>
+          <input type="tel" class="form-control" id="editTelefono" name="telefono" placeholder="0414-xxxxxxx" minlength="11" maxlength="12"/>
         </div>
         <div class="mb-3">
           <label class="form-label">Carrera</label>
-          <select class="form-select" id="editCarrera" name="carrera">
-            <option>Ingeniería en Informática</option>
-            <option>Ingeniería en Telemática</option>
-            <option>Licenciatura en Matemáticas</option>
-            <option>Ingeniería en Producción</option>
-            <option>Analisis en Sistemas</option>
-            <option>Licenciatura en Física</option>
+          <select class="form-select" id="editCarrera" name="id_carrera"></select>
+            <option value="" disabled selected>Selecciona tu carrera</option>
           </select>
         </div>
       </div>
@@ -266,13 +261,8 @@
           </div>
           <div class="col-md-7">
             <label class="form-label">Materia <span class="text-danger">*</span></label>
-            <select class="form-select" id="editAdMateria" name="materia">
-              <option>Cálculo</option>
-              <option>Electrónica</option>
-              <option>Física</option>
-              <option>Programación</option>
-              <option>Redes</option>
-              <option>Estadística</option>
+            <select class="form-select" id="editAdMateria" name="id_materia">
+              <option value="" disabled selected>Selecciona la materia</option>
             </select>
           </div>
           <div class="col-md-5">

@@ -85,7 +85,7 @@ router.get('/:id', async (req, res) => {
     
     try {
         const [rows] = await db.query(
-            `SELECT u.id_usuario, u.nombre_completo, u.email, u.telefono, c.nombre AS carrera
+            `SELECT u.id_usuario, u.nombre_completo, u.email, u.telefono, u.id_carrera, c.nombre AS carrera
             FROM usuarios u
             JOIN carreras c ON u.id_carrera = c.id_carrera
             WHERE u.id_usuario = ? AND u.borrado = 0`,
