@@ -28,7 +28,7 @@ async function inicializar() {
 ───────────────────────────────── */
 async function cargarPerfil() {
   try {
-    const res = await fetch(`http://localhost:3000/api/usuarios/${usuarioActivo.id_usuario}`);
+    const res = await fetch(`/api/usuarios/${usuarioActivo.id_usuario}`);
     const data = await res.json();
 
     document.getElementById('displayNombre').textContent = data.nombre_completo;
@@ -52,7 +52,7 @@ async function cargarPerfil() {
 ───────────────────────────────── */
 async function cargarAnuncios() {
   try {
-  const res = await fetch(`http://localhost:3000/api/anuncios/usuario/${usuarioActivo.id_usuario}`);
+  const res = await fetch(`/api/anuncios/usuario/${usuarioActivo.id_usuario}`);
   ads = await res.json();
   renderAds();
     } catch (error) {
@@ -66,7 +66,7 @@ async function cargarAnuncios() {
 ─────────────────────────────────*/
 async function cargarCarreras() {
   try {
-    const res = await fetch('http://localhost:3000/api/carreras');
+    const res = await fetch('/api/carreras');
     const carreras = await res.json();
     const select = document.getElementById('editCarrera')
 
@@ -88,7 +88,7 @@ async function cargarCarreras() {
 ─────────────────────────────────*/
 async function cargarMaterias() {
   try {
-    const res = await fetch('http://localhost:3000/api/materias');
+    const res = await fetch('/api/materias');
     const materias = await res.json();
     const select = document.getElementById('editAdMateria');
 
@@ -132,7 +132,7 @@ function renderAds() {
 
       <!-- Imagen -->
       <img class="ad-img"
-           src="http://localhost:3000${ad.foto_url}"
+           src="${ad.foto_url}"
            alt="${ad.titulo}"
            onerror="this.src='../IMG/books.png'"/>
 
@@ -198,7 +198,7 @@ function filterTab(tab, el) {
 ───────────────────────────────── */
 async function toggleEstado(id, checked) {
   try {
-    const res = await fetch(`http://localhost:3000/api/anuncios/${id}/disponibilidad`, {
+    const res = await fetch(`/api/anuncios/${id}/disponibilidad`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ disponible: checked })
@@ -244,7 +244,7 @@ function abrirEditarPerfil() {
   const id_carrera = document.getElementById('editCarrera').value;
 
   try {
-    const res = await fetch(`http://localhost:3000/api/usuarios/${usuarioActivo.id_usuario}`, {
+    const res = await fetch(`/api/usuarios/${usuarioActivo.id_usuario}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ nombre_completo: nombre, telefono, id_carrera})
@@ -294,7 +294,7 @@ function abrirEditarAnuncio(id) {
   const input = box.querySelector('input[type=file]');
   box.innerHTML = '';
   const img = document.createElement('img');
-  img.src = `http://localhost:3000${ad.foto_url}`;
+  img.src = `${ad.foto_url}`;
   img.onerror = () => { img.src = '../IMG/books.png'; };
   box.appendChild(img);
   box.appendChild(input);
@@ -348,7 +348,7 @@ document.getElementById('editAnForm').addEventListener('submit', async function 
   if (foto) formData.append('foto', foto);
 
   try {
-    const res = await fetch(`http://localhost:3000/api/anuncios/${id}`, {
+    const res = await fetch(`/api/anuncios/${id}`, {
       method: 'PUT',
       body: formData
     });
@@ -382,7 +382,7 @@ function pedirEliminar(id) {
 
 async function confirmarEliminar() {
   try {
-    const res = await fetch(`http://localhost:3000/api/anuncios/${pendingDelete}`, {
+    const res = await fetch(`/api/anuncios/${pendingDelete}`, {
       method: 'DELETE'
     });
 

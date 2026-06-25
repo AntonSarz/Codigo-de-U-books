@@ -15,6 +15,8 @@
     font-family: 'Source Sans 3', sans-serif;
     background-color: #f0f4f8;
     display: flex; flex-direction: column; min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
     }
 
     /* ═══════════════════════════════
@@ -373,4 +375,9 @@ MODAL EDITAR ANUNCIO
     .profile-card { flex-direction: column; align-items: flex-start; }
     .ad-row { flex-wrap: wrap; }
     .ad-actions { width: 100%; justify-content: flex-start; margin-top: 0.5rem; }
+    .navbar-ubooks {flex-wrap: wrap;}
+    .brand-sub {display: none;}
+    .btn-profile span {display: none;}
+    .btn-edit-profile {display: block; padding: 10px; width: 100%; text-align: center;}
+    .footer-grid {grid-template-columns: 1fr; gap: 1.5rem;}
     }

@@ -85,7 +85,7 @@ sections.forEach(s => observer.observe(s));
 ───────────────────────────────── */
 const selectCarrera = document.getElementById('carrera');
 if (selectCarrera) {
-  fetch('http://localhost:3000/api/carreras')
+  fetch('/api/carreras')
   .then(res => res.json())
   .then(carreras => {
     carreras.forEach(c => {
@@ -113,7 +113,7 @@ if (loginForm) {
 
   // enviar datos al servidor
   try {
-    const res = await fetch('http://localhost:3000/api/usuarios/login', {
+    const res = await fetch('/api/usuarios/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
@@ -166,7 +166,7 @@ if (registroForm) {
 
     // enviar datos al servidor
     try {
-      const res = await fetch('http://localhost:3000/api/usuarios/registro', {
+      const res = await fetch('/api/usuarios/registro', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)

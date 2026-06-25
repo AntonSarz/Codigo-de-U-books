@@ -19,6 +19,8 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      max-width: 100vw;
+      overflow-x: hidden;
     }
 
     /* ═══════════════════════════════
@@ -399,6 +401,12 @@
       .welcome-banner .book-emoji { display: none; }
       .btn-filter, .btn-contacto { padding:0.6rem 0.75rem; min-height:44px; }
       .book-card { gap:0.5rem; }
+      .navbar-ubooks{flex-wrap: wrap;}
+      .search-wrapper{width: 100%; order: 3; margin-top: 10px; margin-left: 0 !important; margin-right: 0 !important;}
+      .brand-sub {display: none;}
+      .btn-profile span {display: none;}
+      .btn-create {margin-right: 3rem; width: 38%;}
+      .footer-grid {grid-template-columns: 1fr; gap: 1.5rem;}
     }
     @media (max-width:576px){
       .books-grid { grid-template-columns: repeat(2,1fr); gap:0.6rem; }

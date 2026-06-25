@@ -194,6 +194,7 @@
       padding: 0.7rem;
       font-size: 1rem;
       font-weight: 600;
+      width: 100%;
       letter-spacing: 0.02em;
       transition: background-color 0.2s, transform 0.15s;
     }

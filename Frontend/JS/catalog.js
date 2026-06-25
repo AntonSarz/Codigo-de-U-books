@@ -14,7 +14,7 @@ let visibleBooks = [];
 ───────────────────────────────── */
 async function cargarAnuncios() {
   try {
-    const res = await fetch('http://localhost:3000/api/anuncios');
+    const res = await fetch('/api/anuncios');
     allBooks = await res.json();
     visibleBooks = [...allBooks];
     sortBooks();
@@ -29,7 +29,7 @@ async function cargarAnuncios() {
 ───────────────────────────────── */
 async function cargarMaterias() {
   try {
-    const res = await fetch('http://localhost:3000/api/materias');
+    const res = await fetch('/api/materias');
     const materias = await res.json();
 
     // los dos selects que necesitan las materias
@@ -69,7 +69,7 @@ function renderBooks(books) {
   grid.innerHTML = books.map(b => `
     <div class="book-card">
       <div class="book-img-wrapper">
-        <img src="http://localhost:3000${b.foto_url}" alt="${b.titulo}" onerror="this.src='../IMG/books.png'"/>
+        <img src="${b.foto_url}" alt="${b.titulo}" onerror="this.src='../IMG/books.png'"/>
         <span class="badge-estado badge-${b.condicion === 1 ? 'nuevo' : 'usado'}">${b.condicion === 1 ? 'Nuevo' : 'Usado'}</span>
       </div>
       
@@ -237,7 +237,7 @@ async function publicarAnuncio(e) {
 
   // Enviar anuncio
   try {
-    const res = await fetch('http://localhost:3000/api/anuncios', {
+    const res = await fetch('/api/anuncios', {
       method: 'POST',
       body: formData //sin Content-type, el navegador lo arma solo para formdata
     });

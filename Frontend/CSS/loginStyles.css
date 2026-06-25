@@ -187,14 +187,6 @@
       display: inline-flex;
     }
 
-    /* Link olvidé contraseña */
-    .forgot-link {
-      color: var(--text-muted-link);
-      font-size: 0.87rem;
-      text-decoration: none;
-    }
-    .forgot-link:hover { text-decoration: underline; }
-
     /* Botón principal */
     .btn-login {
       background-color: var(--blue-btn);
